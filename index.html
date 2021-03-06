@@ -61,22 +61,42 @@ Email: <a href="mailto:g@mdabdullah.in">
 <br>
 <br>
 <div style="text-align: center;">
+
+   <font size="2">
    
-   <h2>JavaScript new Date()</h2>
+   
+ <script>
+function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+</head>
+ 
+<body onload="startTime()">
+<div id="txt"></div>
 
-<p>Using new Date(7 numbers), creates a new date object with the specified date and time:</p>
 
-<p id="demo"></p>
 
+<p id="demo">
 <script>
-var d = new Date(2018, 11, 24, 10, 33, 30, 0);
+var d = new Date();
 document.getElementById("demo").innerHTML = d;
 </script>
-
+<br>
    
-   
-   
-<font size="2"><i>Website managed by <a href="https://mdabdullah.in"> mdabdullah.in</a></i>
+<i>Website managed by <a href="https://mdabdullah.in"> mdabdullah.in</a></i>
 
 <br>
 <font size="1">@@Hosted at Linux Server
