@@ -18,7 +18,7 @@ redshift -O 3200
 mplayer /data/.surah-baqrah-login.ogg
 
 
-//MOUNT THE EXTERNAL HARD DISK FOR DATA STORAGE AS /home is only touched for any new installation//
+//MOUNT THE EXTERNAL HARD DISK FOR DATA STORAGE @ "/data" AS "/home" is never touched for any new installation//
 sudo chown abdullah:abdullah /data
 sudo chmod -R ugo+rwx /data/
 sudo rsync -av Desktop/1archives/ /var/cache/apt/archives/
