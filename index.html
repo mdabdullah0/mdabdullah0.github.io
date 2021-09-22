@@ -41,17 +41,78 @@ Thanks.
 <br>
 
 Email: <a href="mailto:g@mdabdullah.in">
-<font color="brown"> <b><i>g[at]mdabdullah.in</font color></i></b></a>
+<font color="brown"> <b><i>a[at]mdabdullah.in</font color></i></b></a>
 <br>
 <br>
 <br>
 <br>
 </ul>
 <hr>
+<br><ul>
 
 
 <h4>My Linux installation script is something like this:</h4>
+   <font color="Green"><b><a href="new-installation-scripti-linux-abdullah.txt">Copy the TXT file and modify as per your use</font color></b></a>
    <p>
+      #!/bin/bash
+
+cd 
+sudo rsync -av     /var/cache/apt/archives/
+cp -T surah-baqrah-login.ogg  /data/.surah-baqrah-login.ogg
+
+
+sudo apt-get update
+sudo apt-get install zim openssh-client samba guake openssh-server python-gnome2 python-gtkspellcheck python-gnome2 python-pip aspell-en youtube-dl chromium-browser cups-pdf gdebi libreoffice blueman bluez bluez-btsco bluez-obexd bluez-tools pulseaudio-* paprefs paman nautilus-dropbox bluez bluez-tools pulseaudio-module-bluetooth pavucontrol redshift nautilus-dropbox gparted evernote-mode portreserve gsfonts gsfonts-other gsfonts-x11 libc6:i386 libpopt0:i386 libglade2-0:i386 libreoffice gimp samba guake redshift
+
+
+
+//for red screen or say to diminish blue screen, for eyes to add in rc.local as startup//
+sudo nano /etc/rc.local
+redshift -O 3200
+
+// for login sound//
+mplayer /data/.surah-baqrah-login.ogg
+
+
+//MOUNT THE EXTERNAL HARD DISK FOR DATA STORAGE AS /home is only touched for any new installation//
+sudo chown abdullah:abdullah /data
+sudo chmod -R ugo+rwx /data/
+sudo rsync -av Desktop/1archives/ /var/cache/apt/archives/
+sudo chown abdullah:abdullah /home/abdullah
+sudo chown -R abdullah:abdullah /home/abdullah
+sudo chmod -R ug+rw /home/abdullah
+chmod -R o-rwx ~
+
+//CUPS-PDF SETTINGS//
+sudo nano /etc/cups/cups-pdf.conf
+filename 1
+
+//CANON LBP2900B SETTINGS FOR MY LINUX MACHINE!! God level patience to print//
+sudo mkdir /var/ccpd
+sudo mkdir /var/captmon
+sudo /usr/sbin/lpadmin -p LBP2900 -m CNCUPSLBP2900CAPTK.ppd -v ccp:/var/ccpd/fifo0 -E
+sudo /usr/sbin/ccpdadmin -p LBP2900 -o /dev/usb/lp0
+sudo /etc/init.d/ccpd start
+
+//yt-dl script for youtube videos downloads//
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl
+
+//for blank login panel to keyin the users and passwd everytime, to hide the users of the system//
+sudo mkdir /etc/lightdm/lightdm.conf.d/
+sudo touch /etc/lightdm/lightdm.conf.d/50-corp-custom.conf
+sudo nano /etc/lightdm/lightdm.conf.d/50-corp-custom.conf
+
+[SeatDefaults]
+greeter-hide-users=true
+greeter-show-manual-login=true
+allow-guest=false 
+
+sudo service lightdm restart 
+
+
+exit 0
+   </p>
   
 <hr>
 <br>
