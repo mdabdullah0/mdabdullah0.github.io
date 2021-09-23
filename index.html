@@ -57,65 +57,66 @@ Email: <a href="mailto:a@mdabdullah.in">
 	<div style="text-align: left;">
 
    <font size="4">
-<blockquote>
-   <pre> <code>
+	<BLOCKQUOTE>
+		<ol>
+<br>
 #!/bin/bash
+<br>
+cd <br><br>
+sudo rsync -av     /var/cache/apt/archives/<br>
+cp -T surah-baqrah-login.ogg  /data/.surah-baqrah-login.ogg<br><br>
 
-cd 
-sudo rsync -av     /var/cache/apt/archives/
-cp -T surah-baqrah-login.ogg  /data/.surah-baqrah-login.ogg
+sudo apt-get update<br>
 
-sudo apt-get update
 sudo apt-get install zim openssh-client samba guake openssh-server python-gnome2 python-gtkspellcheck python-gnome2 python-pip aspell-en youtube-dl chromium-browser cups-pdf gdebi libreoffice blueman bluez bluez-btsco bluez-obexd bluez-tools pulseaudio-* paprefs paman nautilus-dropbox bluez bluez-tools pulseaudio-module-bluetooth pavucontrol redshift nautilus-dropbox gparted evernote-mode portreserve gsfonts gsfonts-other gsfonts-x11 libc6:i386 libpopt0:i386 libglade2-0:i386 libreoffice gimp samba guake redshift
+<br><br>
+//for red screen or say to diminish blue screen, for eyes to add in rc.local as startup//<br>
+sudo nano /etc/rc.local<br>
+redshift -O 3200<br><br>
+// for login sound//<br>
+mplayer /data/.surah-baqrah-login.ogg<br><br>
 
-//for red screen or say to diminish blue screen, for eyes to add in rc.local as startup//
-sudo nano /etc/rc.local
-redshift -O 3200
+//MOUNT THE EXTERNAL HARD DISK FOR DATA STORAGE @ "/data" AS "/home" is never touched for any new installation//<br>
+sudo chown abdullah:abdullah /data<br>
+sudo chmod -R ugo+rwx /data/<br>
+sudo rsync -av Desktop/1archives/ /var/cache/apt/archives/<br>
+sudo chown abdullah:abdullah /home/abdullah<br>
+sudo chown -R abdullah:abdullah /home/abdullah<br>
+sudo chmod -R ug+rw /home/abdullah<br>
+chmod -R o-rwx ~<br><br>
 
-// for login sound//
-mplayer /data/.surah-baqrah-login.ogg
+//CUPS-PDF SETTINGS//<br>
+sudo nano /etc/cups/cups-pdf.conf<br>
+filename 1<br><br>
 
-//MOUNT THE EXTERNAL HARD DISK FOR DATA STORAGE @ "/data" AS "/home" is never touched for any new installation//
-sudo chown abdullah:abdullah /data
-sudo chmod -R ugo+rwx /data/
-sudo rsync -av Desktop/1archives/ /var/cache/apt/archives/
-sudo chown abdullah:abdullah /home/abdullah
-sudo chown -R abdullah:abdullah /home/abdullah
-sudo chmod -R ug+rw /home/abdullah
-chmod -R o-rwx ~
+//CANON LBP2900B SETTINGS FOR MY LINUX MACHINE!! God level patience to print//<br>
+sudo mkdir /var/ccpd<br>
+sudo mkdir /var/captmon<br>
+sudo /usr/sbin/lpadmin -p LBP2900 -m CNCUPSLBP2900CAPTK.ppd -v ccp:/var/ccpd/fifo0 -E<br>
+sudo /usr/sbin/ccpdadmin -p LBP2900 -o /dev/usb/lp0<br>
+sudo /etc/init.d/ccpd start<br><br>
 
-//CUPS-PDF SETTINGS//
-sudo nano /etc/cups/cups-pdf.conf
-filename 1
+//yt-dl script for youtube videos downloads//<br>
+sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl<br>
+sudo chmod a+rx /usr/local/bin/youtube-dl<br><br>
 
-//CANON LBP2900B SETTINGS FOR MY LINUX MACHINE!! God level patience to print//
-sudo mkdir /var/ccpd
-sudo mkdir /var/captmon
-sudo /usr/sbin/lpadmin -p LBP2900 -m CNCUPSLBP2900CAPTK.ppd -v ccp:/var/ccpd/fifo0 -E
-sudo /usr/sbin/ccpdadmin -p LBP2900 -o /dev/usb/lp0
-sudo /etc/init.d/ccpd start
+//for blank login panel to keyin the users and passwd everytime, to hide the users of the system//<br>
+sudo mkdir /etc/lightdm/lightdm.conf.d/<br>
+sudo touch /etc/lightdm/lightdm.conf.d/50-corp-custom.conf<br>
+sudo nano /etc/lightdm/lightdm.conf.d/50-corp-custom.conf<br>
 
-//yt-dl script for youtube videos downloads//
-sudo wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
+[SeatDefaults]<br>
+greeter-hide-users=true<br>
+greeter-show-manual-login=true<br>
+allow-guest=false <br><br>
 
-//for blank login panel to keyin the users and passwd everytime, to hide the users of the system//
-sudo mkdir /etc/lightdm/lightdm.conf.d/
-sudo touch /etc/lightdm/lightdm.conf.d/50-corp-custom.conf
-sudo nano /etc/lightdm/lightdm.conf.d/50-corp-custom.conf
-
-[SeatDefaults]
-greeter-hide-users=true
-greeter-show-manual-login=true
-allow-guest=false 
-
-sudo service lightdm restart 
+sudo service lightdm restart <br><br>
 
 
 exit 0
    
-	</pre> </code>
-	   </blockquote>
+
+	</BLOCKQUOTE>
 </div>   
 		
 		
@@ -138,7 +139,7 @@ exit 0
 <BR><BR>
 2. Create an account at stackoverflow.com and ask any kind of computing questions. You will receive very very professional reply. Even Google engineersdo reply there as a hobby. Best reply for all Programming related questions.
 <BR><BR>
-3. Create GIT Hub account and upload your programs there through GIT client. Meanwhile get to know GIT. Largest repo of softwares. https://github.com/. 
+3. Create GIT Hub account and upload your programs there through GIT client. Meanwhile get to know GIT. Largest repo of softwares. <br>https://github.com/. 
 <BR><BR>
 4. start reading for C. Am attaching this PDF, which I have sorted after going through several books. It is best and to the point.
 Click to download book:
@@ -148,7 +149,7 @@ https://www-personal.acfr.usyd.edu.au/tbailey/ctext/ctext.pdf
 <BR><BR>
 6. Read those books which have less no of pages. Never purchase books which have more than 300 or more pages. For larger material there is internet. Learn to use Internet very effectively.
 <BR><BR>
-7. An OCW and IIT initiative where you can get alot of material and notes and all. 
+7. An OCW and IIT initiative where you can get alot of material and notes and all.<br>
 http://ocw.mit.edu/
 https://nptel.ac.in/course.html
 <BR><BR>
@@ -169,7 +170,7 @@ then
 <BR>
 https://web.iiit.ac.in/~pratik.kamble/storage/Algorithms/Cormen_Algorithms_3rd.pdf
 </blockquote>
-      
+
    
    <hr>
    
